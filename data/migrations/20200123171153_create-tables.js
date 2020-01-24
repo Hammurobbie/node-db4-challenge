@@ -16,6 +16,7 @@ exports.up = function(knex, Promise) {
       tbl.text("quantity").notNullable();
       tbl.text("instructions").notNullable();
       tbl
+        .integer("recipe_id")
         .unsigned()
         .notNullable()
         .references("id")

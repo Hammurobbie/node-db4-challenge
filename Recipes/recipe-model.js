@@ -9,11 +9,15 @@ module.exports = {
 };
 
 function find() {
-  return db("schemes");
+  return db("recipes", "ingredients.name").join(
+    "ingredients",
+    "ingredients.id",
+    "recipes.recipe_id"
+  );
 }
 
-function findById(schemeId) {
-  return db("schemes").where({ id: schemeId });
+function findById(id) {
+  return db("recipes").where({ id: id });
 }
 
 function add(recipe) {
